@@ -1,0 +1,9 @@
+{
+  "explain":"this file is for prettier rules config",
+  "semi": true,
+  "trailingComma": "all",
+  "singleQuote": false,
+  "printWidth": 80,
+  "tabWidth": 4,
+  "endOfLine": "auto"
+}   
