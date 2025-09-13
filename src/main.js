@@ -7,7 +7,7 @@ const todoNav = document.getElementById("todo-nav");
 const markAllCompleted = document.getElementById("mark-all-completed");
 const clearCompleted = document.getElementById("clear-completed");
 const activeTodosCount = document.getElementById("todo-count");
-
+ 
 
 // Helper function to create a new array with the existing todos and a new todo item
 const addTodo = (todos, newTodoText, newTodoId) => [
