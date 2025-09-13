@@ -50,7 +50,15 @@
   class="flex flex-col w-full text-xl font-normal divide-y"
   ><!-- section element is a semantic HTML element that is used to define a section in a document. It typically contains related content that can be grouped together. In this case, we are using it to contain the list of todos.-->
   <!-- Todos will go here -->
-</section>
+    <div class="p-4 todo-item">
+      <div class="todo-text">Buy milk</div>
+      <input class="hidden todo-edit" value="Buy milk" />
+    </div>
+    <div class="p-4 todo-item">
+      <div class="todo-text">Buy bread</div>
+      <input class="hidden todo-edit" value="Buy bread" />
+    </div>
+  </section>
   </main>
   <footer
   class="flex flex-col items-center justify-center max-w-lg mx-auto mt-10 text-xs text-gray-500 font-extralight"
