@@ -8,20 +8,31 @@
 </head>
 <body>
   <body class="bg-stone-100">
+  <!--semantic HTML element that is used to define a header for a document or a section.
+  It typically contains a group of introductory or navigational aids. In this case, we are using it to 
+  display the title of our app.-->
 	<header class="max-w-lg py-4 mx-auto mt-5 font-thin text-center">
     <h1 class="font-sans text-7xl text-rose-700">~ todos ~</h1>
   </header>
+  <!--add this nav section between the header and footer sections to filter our todos and switch between completed and active ones, or show all todos
+  nav is a semantic HTML element that is used to define a navigation bar for a document or a section. It typically contains links to other pages or sections
+  within the document. In this case, we are using it to provide filtering options for our todos.-->
   <nav
-  id="todo-nav"
-  class="flex items-center justify-center gap-3 py-2 filters"
-  role="navigation"
-  >
+    id="todo-nav"
+    class="flex items-center justify-center gap-3 py-2 filters"
+    role="navigation"
+  ><!--above, filters which is not a Tailwind CSS class but a custom class to allow us select the nav element easily.-->
+    <!--the <a> tag below creates a hyperlink-->
+    <!--role attribute is used to define the purpose of an element. In this case, we are using it to indicate that 
+    the nav element is a navigation bar. This helps assistive technologies, such as screen readers, to understand the purpose of the element
+     On the anchor elements, we are using the role attribute to indicate that they are buttons. This is because they behave like buttons when clicked.-->
     <a
       href="#/"
       class="p-1 underline underline-offset-4 decoration-rose-800 decoration-2"
       role="button"
       >All</a
     >
+    <!-- The first child anchor element is selected by default, which is reflected in its unique style (underlined decoration)-->
     <a
       href="#/active"
       class="p-1"
@@ -36,30 +47,53 @@
     >
   </nav>
 
-  <main class="max-w-lg mx-auto font-thin bg-white divide-y shadow-md">
-  <input
-  id="new-todo"
-  placeholder="What needs to be done?"
-  autofocus
-  class="w-full p-4 text-2xl italic outline-none focus:outline-offset-0 focus:outline-rose-700"
-  /><!--placeholder provide a hint to users about what to enter. autofocus automatically focus on the input field when the page loads.-->
-  <!--self-closing element that is used to create an input field for users to enter data-->
-  
-  <section
-  id="todo-list"
-  class="flex flex-col w-full text-xl font-normal divide-y"
-  ><!-- section element is a semantic HTML element that is used to define a section in a document. It typically contains related content that can be grouped together. In this case, we are using it to contain the list of todos.-->
-  <!-- Todos will go here -->
-    <div class="p-4 todo-item">
-      <div class="todo-text">Buy milk</div>
-      <input class="hidden todo-edit" value="Buy milk" />
-    </div>
-    <div class="p-4 todo-item">
-      <div class="todo-text">Buy bread</div>
-      <input class="hidden todo-edit" value="Buy bread" />
-    </div>
-  </section>
+  <main class="max-w-lg mx-auto font-thin bg-white divide-y shadow-md"><!--divide-y to add a vertical divider between the child elements.-->
+  <!--users will be able to enter new todos. Input bar compes with a value object after enter-->
+    <input
+    id="new-todo"
+    placeholder="What needs to be done?"
+    autofocus
+    class="w-full p-4 text-2xl italic outline-none focus:outline-offset-0 focus:outline-rose-700"
+    /><!--placeholder provide a hint to users about what to enter. autofocus automatically focus on the input field when the page loads.-->
+    <!--inpus is self-closing element that is used to create an input field for users to enter data-->
+  <!--Tailwind CSS, the focus: prefix is used to apply styles when an element is in focus. This allows us to style elements based on user interactions, such as when an input field is selected. There are other prefixes like hover: and active: 
+  that can be used to apply styles based on different states of an element.-->
+    <section
+    id="todo-list"
+    class="flex flex-col w-full text-xl font-normal divide-y"
+    ><!-- section element is a semantic HTML element that is used to define a section in a document. It typically contains related content that can be grouped together. In this case, we are using it to contain the list of todos.-->
+    <!-- Todos will go here -->
+      <div class="p-4 todo-item">
+        <div class="todo-text">Buy milk</div>
+        <input class="hidden todo-edit" value="Buy milk" />
+      </div>
+      <div class="p-4 todo-item"><!--input element with the class “hidden todo-edit”, which will be initially hidden. This input element will be used to
+        edit the todo text. For example, when we double click on a todo, the text will be replaced with this input field.-->
+        <div class="todo-text">Buy bread</div>
+        <input class="hidden todo-edit" value="Buy bread" />
+      </div>
+    </section>
+    
+    
+    <!--section starts a new line like div, include a count of the remaining todos, a button to mark all todos as completed, and a button to 
+    clear completed todos. Later, we will use JavaScript to hide this section by default and only show it when todos exist.-->
+    <section
+    id="todo-actions"
+    class="flex justify-between p-4 text-sm text-gray-600"
+    ><!--justify-between to align the items with space between them along the main axis.-->
+      <span id="todo-count">2 items left</span><!--span element is used to group inline elements, doesn't start new line like button block and <a> tag, and take up the space of its own width, not the whole row like div or . In contrast to div, which is a block-level element, span is an inline element, which means it does not start on a new line. Here, we are using it to display the count of remaining todos. -->
+      <button id="mark-all-completed" aria-label="Mark all tasks as completed"><!--aria-label attribute is used to provide an accessible name for an element when the visible label is not sufficient. In this case, we are using it to provide a label for the buttons that mark all tasks as completed and clear completed tasks. This helps users who rely on screen readers to understand the purpose of the buttons.-->
+        Mark all as complete
+      </button>
+      <button id="clear-completed" aria-label="Clear completed tasks">
+        Clear completed
+      </button><!--in this section, 2 items left and the 2 buttons are in the same line because display: flex are in row by default-->
+    </section>
   </main>
+
+  <!--The footer is a semantic HTML element that is used to define a footer for a document or a section. 
+  It typically contains information about the author, copyright data, or links to related documents. 
+  In this case, we are using it to provide some basic instructions on how to use the app.-->
   <footer
   class="flex flex-col items-center justify-center max-w-lg mx-auto mt-10 text-xs text-gray-500 font-extralight"
   ><!--focus keyword apply styles when element is in focus-->
@@ -68,6 +102,6 @@
   </footer>
 
 	<!-- Scripts here. Don't remove ↓ -->
-	<script type="module" src="/src/main.js"></script>
+	<script type="module" src="./src/main.js"></script>
 </body>
 </html>
